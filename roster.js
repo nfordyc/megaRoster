@@ -1,11 +1,17 @@
 const megaRoster = [];
 {
-    const addMember = () => { //add new member to megaRoster array
+    const updateList = () => {
+        
+    }
+
+    const addMember = (e) => { //add new member to megaRoster array
+        e.preventDefault()
         const name = document.querySelector('.name')
         megaRoster.unshift(name.value)
         console.log(megaRoster)
+        updateList()
     }
 
-    const addButton = document.querySelector('button')
-    addButton.addEventListener('onclick',addMember)
+    const form = document.querySelector('form')
+    form.addEventListener('submit',addMember)
 }
