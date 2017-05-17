@@ -2,14 +2,19 @@ const megaRoster = [];
 {
     const updateList = () => {
         const list = document.querySelector('ul')
+
         megaRoster.forEach(name => {
+            //check if name is already on list
+            if(document.querySelector(`div.${name}`)) return
+
+            //create new div
             let listItem = document.createElement('li')
             let div = `
-            <div class=${name}>
-                <label>${name}</label>
-                <button>Delete</button>
-                <button>Promote</button>
-            <div>`
+                <div class=${name}>
+                    <label>${name}</label>
+                    <button>Delete</button>
+                    <button>Promote</button>
+                <div>`
             listItem.innerHTML = div
             list.appendChild(listItem)
         })
