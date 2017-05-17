@@ -14,7 +14,6 @@ const megaRoster = [];
     }
 
     const deleteMember = e => {
-        console.log(e)
         //remove person from megaRoster array
         const name = e.path[1].className
         megaRoster.splice(megaRoster.indexOf(name),1)
@@ -25,9 +24,8 @@ const megaRoster = [];
     }
 
     const promoteMember = e => {
-        console.log(e)
+        //change border color to red
         const box = e.path[2]
-        console.log(box.style)
         box.style.borderColor = 'red'
     }
 
@@ -52,6 +50,10 @@ const megaRoster = [];
     const addMember = (e) => { //add new member to megaRoster array
         e.preventDefault()
         const name = document.querySelector('.name')
+
+        //don't allow duplicates
+        if(megaRoster.indexOf(name.value) > -1) return
+        
         megaRoster.unshift(name.value)
         console.log(megaRoster)
         updateList()
