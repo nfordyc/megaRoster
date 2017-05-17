@@ -13,7 +13,14 @@ const megaRoster = [];
     }
 
     const deleteMember = e => {
+        console.log(e)
+        //remove person from megaRoster array
+        const name = e.path[1].className
+        megaRoster.splice(megaRoster.indexOf(name),1)
 
+        //remove html element from the list
+        const container = e.path[2]
+        container.remove()
     }
 
     const promoteMember = e => {
