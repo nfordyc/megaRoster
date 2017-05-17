@@ -1,5 +1,25 @@
 const megaRoster = [];
 {
+    const createListEntry = (name,list) => {
+        let listItem = document.createElement('li')
+        let div = `
+            <div class=${name}>
+                <label>${name}</label>
+                <button id="delete${name}">Delete</button>
+                <button id="promote${name}">Promote</button>
+            <div>`
+        listItem.innerHTML = div
+        list.appendChild(listItem)
+    }
+
+    const deleteMember = e => {
+
+    }
+
+    const promoteMember = e => {
+        
+    }
+
     const updateList = () => {
         const list = document.querySelector('ul')
 
@@ -8,15 +28,13 @@ const megaRoster = [];
             if(document.querySelector(`div.${name}`)) return
 
             //create new div
-            let listItem = document.createElement('li')
-            let div = `
-                <div class=${name}>
-                    <label>${name}</label>
-                    <button>Delete</button>
-                    <button>Promote</button>
-                <div>`
-            listItem.innerHTML = div
-            list.appendChild(listItem)
+            createListEntry(name,list)
+
+            const deleteButton = document.getElementById(`delete${name}`)
+            const promoteButton = document.getElementById(`promote${name}`)
+
+            deleteButton.addEventListener('click',deleteMember)
+            promoteButton.addEventListener('click',promoteMember)
         })
     }
 
