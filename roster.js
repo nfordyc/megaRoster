@@ -24,7 +24,10 @@ const megaRoster = [];
     }
 
     const promoteMember = e => {
-        
+        console.log(e)
+        const box = e.path[2]
+        console.log(box.style)
+        box.style.borderColor = 'red'
     }
 
     const updateList = () => {
