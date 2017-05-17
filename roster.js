@@ -9,7 +9,8 @@ const megaRoster = [];
                 <button id="promote${name}">Promote</button>
             <div>`
         listItem.innerHTML = div
-        list.appendChild(listItem)
+
+        list.insertBefore(listItem,list.childNodes[0])
     }
 
     const deleteMember = e => {
