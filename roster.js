@@ -1,7 +1,18 @@
 const megaRoster = [];
 {
     const updateList = () => {
-        
+        const list = document.querySelector('ul')
+        megaRoster.forEach(name => {
+            let listItem = document.createElement('li')
+            let div = `
+            <div class=${name}>
+                <label>${name}</label>
+                <button>Delete</button>
+                <button>Promote</button>
+            <div>`
+            listItem.innerHTML = div
+            list.appendChild(listItem)
+        })
     }
 
     const addMember = (e) => { //add new member to megaRoster array
